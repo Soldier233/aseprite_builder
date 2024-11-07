@@ -69,6 +69,12 @@ jobs:
       - name: (Windows) Install dependencies
         if: matrix.os == 'windows-latest'
         uses: seanmiddleditch/gha-setup-ninja@v1
+        with:
+          path: D:\a\aseprite_builder\aseprite_builder\ninja-build
+      
+      - name: (Windows) Set environment path for Ninja
+        if: matrix.os == 'windows-latest'
+        run: echo "D:\a\aseprite_builder\aseprite_builder\ninja-build" >> $GITHUB_PATH
       - name: (Ubuntu) Install dependencies
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt install -y cmake ninja-build libxcursor-dev libxi-dev libgl1-mesa-dev
